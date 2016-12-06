@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package prep.jing.study.thkinginjava.concurrency;
 
 import java.util.List;
@@ -17,12 +15,12 @@ import com.google.common.collect.Lists;
  *
  */
 class TaskWithResult implements Callable<String> {
-	private int id;
+	private final int id;
 
 	/**
 	 * 
 	 */
-	public TaskWithResult(int id) {
+	TaskWithResult(int id) {
 		this.id = id;
 	}
 
@@ -44,18 +42,14 @@ public class TaskWithResultDemo {
 			result.add(exec.submit(new TaskWithResult(i)));
 		}
 
-		for (Future<String> future : result) {
+		for (Future<String> future : result)
 			try {
 				System.out.println(future.get());
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ExecutionException e) {
+			} catch (InterruptedException | ExecutionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
 				exec.shutdown();
 			}
-		}
 	}
 }

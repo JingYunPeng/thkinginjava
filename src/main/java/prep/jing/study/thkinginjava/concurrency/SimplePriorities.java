@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package prep.jing.study.thkinginjava.concurrency;
 
 import java.util.concurrent.ExecutorService;
@@ -13,9 +11,9 @@ import java.util.concurrent.Executors;
 public class SimplePriorities implements Runnable {
 	private int countDown = 5;
 	private volatile double d;
-	private int priority;
+	private final int priority;
 
-	public SimplePriorities(int priority) {
+	private SimplePriorities(int priority) {
 		this.priority = priority;
 	}
 
@@ -38,7 +36,7 @@ public class SimplePriorities implements Runnable {
 	}
 
 	/**
-	 * @return
+	 * @return the status
 	 */
 	private String status() {
 		return Thread.currentThread() + " " + countDown;

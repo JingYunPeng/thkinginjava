@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package prep.jing.study.thkinginjava.concurrency;
 
 import com.google.common.base.Preconditions;
@@ -9,13 +7,13 @@ import com.google.common.base.Preconditions;
  * @author Administrator
  *
  */
-public class LiftOff implements Runnable {
+class LiftOff implements Runnable {
 
-	protected int countDown = 10; // Default
+	int countDown = 10; // Default
 	private static int taskCount = 0;
 	private final int id = taskCount++;
 
-	public LiftOff() {
+	LiftOff() {
 	}
 
 	public LiftOff(int countDown) {
@@ -23,7 +21,7 @@ public class LiftOff implements Runnable {
 		this.countDown = countDown;
 	}
 
-	public String status() {
+	String status() {
 		return "#" + id + "(" + (countDown > 0 ? countDown : "Lift Off!") + ")";
 	}
 

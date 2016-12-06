@@ -2,12 +2,13 @@ package prep.jing.study.thkinginjava.concurrency;
 
 import java.util.concurrent.TimeUnit;
 
-/**
+/**simple daemons
  * Created by Administrator on 2016/12/4.
  */
 public class SimpleDeamons implements Runnable {
     public void run() {
         try {
+            //noinspection InfiniteLoopStatement
             while (true) {
                 TimeUnit.MILLISECONDS.sleep(100);
                 System.out.println(Thread.currentThread() + " " + this);
